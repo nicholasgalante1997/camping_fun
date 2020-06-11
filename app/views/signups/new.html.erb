@@ -1,0 +1,17 @@
+<h3>Camper Sign Up Sheet</h3>
+
+<% if flash[:errors] %>
+<% flash[:errors].each do |e| %>
+<p><%= e %></p>
+<%end%>
+<%end%>
+
+<%= form_for @signup do |f| %>
+<%= f.label "Camper" %>
+<%= f.collection_select :camper_id, @campers, :id, :name %>
+<%= f.label "Activity" %>
+<%= f.collection_select :activity_id, @activities, :id, :name %>
+<%= f.label "Time"%>
+<%= f.number_field :time %>
+<%= f.submit %>
+<%end%>
